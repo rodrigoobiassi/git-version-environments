@@ -7,21 +7,33 @@ class Biassi_GitVersion_Block_Adminhtml_Page_Tagversion extends Mage_Adminhtml_B
     const LOCALE_CACHE_TAG      = 'adminhtml';
     const FILEPATH 				= 'appVersion.php';
     const TAG_NOT_FOUND 		= 'Tag não encontrada!';   				
+    const GITVERSION_PROD		= 'biassi/gitversion/prod';
+    const GITVERSION_DEV		= 'biassi/gitversion/uat';
 
 	public function getVersion()
 	{
-		$apps = Mage::getStoreConfig('biassi_gitversion/app');
+		$apps = array(
+			array(
+				"label"  => "PROD",
+				"ip" => Mage::getStoreConfig(self::GITVERSION_PROD),
+			),
+			array(
+				"label"  => "DEV",
+				"ip" => Mage::getStoreConfig(self::GITVERSION_DEV),
+			),
+		);
+
 		$versionTags = array();
 
 		foreach ($apps as $value) { 
 			$label   = $value['label'];
-			$ip      = $value['ip'];
+			$ip    = $value['ip'];
 
 			$versionTags[] = array(
-					'app' 		 => $label,
-					'ip'         => $ip,
-					'tagversion' => $this->getFetchHead($ip)					
-				);
+				'app' 		 => $label,
+				'ip'         => $ip,
+				'tagversion' => $this->getFetchHead($ip)					
+			);
 		}
 		
 		return $versionTags;		

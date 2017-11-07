@@ -30,19 +30,27 @@
                 </biassi_gitversion>
             </updates>
         </layout>
-    </adminhtml>
-    <default>
-        <biassi_gitversion>
-        	<app>
-	            <server1>
-	            	<label>PROD</label>
-	            	<ip>52.200.18.72</ip>
-	            </server1>
-                <server2>
-                    <label>UAT</label>
-                    <ip>uat-soubarato.recomprafacil.com.br</ip>
-                </server2>
-	        </app>
-        </biassi_gitversion>
-    </default>        
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <biassi>
+                                            <title>Biassi - All</title>
+                                        </biassi>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>       
 </config>

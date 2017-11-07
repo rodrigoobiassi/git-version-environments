@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <biassi translate="label" module="biassi_gitversion">
+            <label>Biassi</label>
+            <sort_order>0</sort_order>
+        </biassi>
+    </tabs>
+    <sections>
+        <biassi>
+            <label>Git Version</label>
+            <tab>biassi</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <gitversion>
+                    <label>Environments</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Git Version - Enabled:</label>
+                            <comment>Enable/Disabled this Module.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <prod>
+                            <label>Environment Live - Production</label>
+                            <comment>Enter the URL or IP of the Production environment</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </prod>
+                        <uat>
+                            <label>Environment UAT - Homologation</label>
+                            <comment>Enter the URL or IP of the Homologation environment</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </uat>
+                    </fields>
+                </gitversion>
+            </groups>
+        </biassi>
+    </sections>
+</config>
