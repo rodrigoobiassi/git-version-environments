@@ -1,0 +1,39 @@
+<style>
+	.version-git{ text-align: center; }
+	.version-git h3{ cursor: pointer; color: #ea7601; text-decoration: underline; }
+	.version-git h3:hover{ color: blue; }
+	.version-git .app { display: none; }
+</style>
+<?php if($this->getVersion()): ?>
+<div class="version-git">
+	<h3 onclick="toggleAppVersion('app');">Git Version</h3>
+	<?php $i = 0; ?>
+	<?php foreach ($this->getVersion() as $value): ?>
+		<div id="<?php echo 'app_'.$i; ?>" class="app">
+			<h4>App: <?php echo $value['app'] ?> </h4>
+			<ul>
+				<li>IP: <?php echo $value['ip']; ?></li>
+				<li>TAG: <?php echo $value['tagversion']; ?></li>
+			</ul>
+			<p></p>
+		</div>
+		<?php $i++; ?>
+	<?php endforeach; ?>
+</div>
+<?php endif; ?>
+<script>
+	function toggleAppVersion(targetClass)
+	{
+		var elements = document.getElementsByClassName(targetClass);
+
+		for (var i = 0; i < elements.length; i++) {
+			if(document.getElementById('app_'+i).style.display == '' || 
+				document.getElementById('app_'+i).style.display == 'none'){
+				document.getElementById('app_'+i).style.display = 'block';
+				window.scrollTo(0,window.innerHeight+window.innerHeight);
+			}else{
+				document.getElementById('app_'+i).style.display = 'none';
+			}
+		};
+	}
+</script>
